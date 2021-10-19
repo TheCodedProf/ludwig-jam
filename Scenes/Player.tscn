@@ -56,7 +56,7 @@ __meta__ = {
 position = Vector2( -0.176773, -1.90735e-06 )
 frames = SubResource( 1 )
 animation = ""
-frame = 6
+frame = 2
 playing = true
 
 [node name="Hitbox" parent="." instance=ExtResource( 21 )]
