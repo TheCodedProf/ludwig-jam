@@ -1,140 +1,145 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Level.gd" type="Script" id=4]
 
 [node name="Level" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 240, 32 )
+position = Vector2( 960, 112 )
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="Wall2" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 304 )
+position = Vector2( 0, 1016 )
 
 [node name="Wall3" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 16, 304 )
+position = Vector2( 64, 1016 )
 
 [node name="Wall4" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 32, 304 )
+position = Vector2( 128, 1016 )
 
 [node name="Wall5" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 48, 304 )
+position = Vector2( 192, 1016 )
 
 [node name="Wall6" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 64, 304 )
+position = Vector2( 256, 1016 )
 
 [node name="Wall7" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 80, 304 )
+position = Vector2( 320, 1016 )
 
 [node name="Wall8" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 96, 304 )
+position = Vector2( 384, 1016 )
 
 [node name="Wall9" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 112, 304 )
+position = Vector2( 448, 1016 )
 
 [node name="Wall10" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 128, 304 )
+position = Vector2( 512, 1016 )
 
 [node name="Wall11" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 144, 304 )
+position = Vector2( 576, 1016 )
 
 [node name="Wall12" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 160, 304 )
+position = Vector2( 640, 1016 )
 
 [node name="Wall32" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 256 )
+position = Vector2( 0, 760 )
 
 [node name="Wall33" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 272 )
+position = Vector2( 0, 888 )
 
 [node name="Wall43" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 288 )
+position = Vector2( 0, 952 )
 
 [node name="Wall44" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 288 )
+position = Vector2( 1856, 952 )
 
 [node name="Wall34" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 240 )
+position = Vector2( 0, 824 )
 
 [node name="Wall35" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 208 )
+position = Vector2( 0, 632 )
 
 [node name="Wall36" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 256 )
+position = Vector2( 1856, 696 )
 
 [node name="Wall37" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 192 )
+position = Vector2( 1856, 632 )
 
 [node name="Wall38" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 272 )
+position = Vector2( 1856, 824 )
 
 [node name="Wall39" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 240 )
+position = Vector2( 1856, 888 )
 
 [node name="Wall40" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 224 )
+position = Vector2( 0, 696 )
 
 [node name="Wall41" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 208 )
+position = Vector2( 1856, 568 )
 
 [node name="Wall42" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 224 )
+position = Vector2( 1856, 760 )
 
 [node name="Wall13" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 176, 304 )
+position = Vector2( 704, 1016 )
 
 [node name="Wall14" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 192, 304 )
+position = Vector2( 768, 1016 )
 
 [node name="Wall15" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 208, 304 )
+position = Vector2( 832, 1016 )
 
 [node name="Wall16" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 224, 304 )
+position = Vector2( 896, 1016 )
 
 [node name="Wall17" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 240, 304 )
+position = Vector2( 960, 1016 )
 
 [node name="Wall18" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 256, 304 )
+position = Vector2( 1024, 1016 )
 
 [node name="Wall19" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 272, 304 )
+position = Vector2( 1088, 1016 )
 
 [node name="Wall20" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 288, 304 )
+position = Vector2( 1152, 1016 )
 
 [node name="Wall21" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 304, 304 )
+position = Vector2( 1216, 1016 )
 
 [node name="Wall22" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 320, 304 )
+position = Vector2( 1280, 1016 )
 
 [node name="Wall23" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 336, 304 )
+position = Vector2( 1344, 1016 )
 
 [node name="Wall24" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 352, 304 )
+position = Vector2( 1408, 1016 )
 
 [node name="Wall25" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 368, 304 )
+position = Vector2( 1472, 1016 )
 
 [node name="Wall26" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 384, 304 )
+position = Vector2( 1536, 1016 )
 
 [node name="Wall27" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 400, 304 )
+position = Vector2( 1600, 1016 )
 
 [node name="Wall28" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 416, 304 )
+position = Vector2( 1664, 1016 )
 
 [node name="Wall29" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 432, 304 )
+position = Vector2( 1728, 1016 )
 
 [node name="Wall30" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 448, 304 )
+position = Vector2( 1792, 1016 )
 
 [node name="Wall31" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 464, 304 )
+position = Vector2( 1856, 1016 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
