@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
+[ext_resource path="res://Assets/yellowbar.png" type="Texture" id=2]
+[ext_resource path="res://Assets/orangerect.png" type="Texture" id=3]
+[ext_resource path="res://Assets/label.png" type="Texture" id=4]
+
+[node name="UI" type="MarginContainer"]
+anchor_right = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = 60.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1880.0
+margin_bottom = 40.0
+
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 40.0
+
+[node name="Bar" type="HBoxContainer" parent="HBoxContainer/Bars"]
+margin_right = 100.0
+margin_bottom = 40.0
+
+[node name="Count" type="MarginContainer" parent="HBoxContainer/Bars/Bar"]
+margin_right = 100.0
+margin_bottom = 40.0
+
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Bars/Bar/Count"]
+margin_right = 100.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 100, 40 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 120, 46 )
+
+[node name="JumpNum" type="Label" parent="HBoxContainer/Bars/Bar/Count/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -9.0
+text = "5"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpText" type="Label" parent="HBoxContainer/Bars/Bar/Count/Background"]
+margin_right = 84.0
+margin_bottom = 40.0
+text = "Jumps"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gauge" type="TextureProgress" parent="HBoxContainer/Bars/Bar/Count"]
+visible = false
+margin_right = 248.0
+margin_bottom = 40.0
+texture_under = ExtResource( 3 )
+texture_progress = ExtResource( 2 )
