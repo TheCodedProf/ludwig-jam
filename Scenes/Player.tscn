@@ -1,0 +1,66 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-idle-01.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-idle-03.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-idle-00.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-idle-02.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-run-04.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-run-03.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-run-05.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-run-00.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-run-01.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-run-02.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-crnr-clmb-00.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-crnr-clmb-02.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-crnr-clmb-01.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-crnr-clmb-03.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Adventurer/Individual Sprites/adventurer-crnr-clmb-04.png" type="Texture" id=20]
+[ext_resource path="res://Scenes/Hitbox.tscn" type="PackedScene" id=21]
+
+[sub_resource type="StreamTexture" id=2]
+load_path = "res://.import/adventurer-crnr-jmp-00.png-33f55dece02eca8609a9f7ea1bb2ec74.stex"
+
+[sub_resource type="StreamTexture" id=3]
+load_path = "res://.import/adventurer-crnr-jmp-01.png-a0a7d81a8befa16577472f230d695c6a.stex"
+
+[sub_resource type="StreamTexture" id=4]
+load_path = "res://.import/adventurer-crnr-jmp-02.png-012a3bb68e0def5bc6f3f79194b473a5.stex"
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 19 ), ExtResource( 20 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 1 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+} ]
+
+[node name="Player" type="Node2D"]
+position = Vector2( 215.713, 252.183 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.176773, -1.90735e-06 )
+frames = SubResource( 1 )
+animation = ""
+frame = 2
+playing = true
+
+[node name="Hitbox" parent="." instance=ExtResource( 21 )]
+x = -4
+y = -10
+width = 8
+height = 26

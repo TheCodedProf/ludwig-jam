@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludwig-jam", "Ludwig-jam.csproj", "{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{AAD5D4AF-F529-4E65-A8F5-6F0A998A7F13}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal
