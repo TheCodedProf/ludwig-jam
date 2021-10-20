@@ -27,13 +27,13 @@ func _process(delta):
 	
 	if on_ground:
 		cur_jumps = 5
-		$"../UI".update_jumps(cur_jumps)
+		$"../CanvasLayer/UI".update_jumps(cur_jumps)
 		animated_sprite.play("idle")
 	
 	# flying feels like giga shit lmao
 	if flying && cur_jumps != 0:
 		cur_jumps -= 1
-		$"../UI".update_jumps(cur_jumps)
+		$"../CanvasLayer/UI".update_jumps(cur_jumps)
 		velocity.x = cos(mouse_angle) * fly_force
 		velocity.y = sin(mouse_angle) * fly_force
 		animated_sprite.play("flight")
@@ -46,7 +46,7 @@ func _process(delta):
 	move_x(velocity.x * delta, funcref(self, "on_collision_x"))
 	move_y(velocity.y * delta, funcref(self, "on_collision_y"))
 	
-	# TODO: add player animation\
+	# TODO: add player animation
 	if direction_x < 0:
 		animated_sprite.flip_h = true
 	else:

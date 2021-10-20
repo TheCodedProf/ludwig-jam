@@ -38,7 +38,7 @@ position = Vector2( -0.176773, -1.90735e-06 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 4 )
 animation = "flight"
-frame = 3
+frame = 1
 playing = true
 
 [node name="Hitbox" parent="." instance=ExtResource( 21 )]
