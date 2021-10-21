@@ -6,7 +6,7 @@ var max_run = 800 # max left and right speed
 var run_accel = 3800 # how fast you accelerate left and right
 var gravity = 5000 # overall gravity modifier (both jump and fall)
 var max_fall = 6000 # fall speed
-var jumps = 5
+var jumps = 3
 var fly_force
 var can_fly = true
 
@@ -21,7 +21,7 @@ func _physics_process(delta):
 	var _direction_y = sign(mouse_position.y - global_position.y)
 	
 	if is_on_floor():
-		jumps = 5
+		jumps = 3
 		gravity = 5000
 		$"../GUI/HUD".update_jumps(jumps)
 		animated_sprite.play("idle")
