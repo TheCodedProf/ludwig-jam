@@ -27,7 +27,7 @@ func get_bottom():
 func _draw():
 	draw_rect(Rect2(x, y, width, height), color)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	update()
 
 func intersects(other, offset):

@@ -23,7 +23,7 @@ func _process(delta):
 	var mouse_position = get_global_mouse_position()
 	var mouse_angle = get_angle_to(mouse_position)
 	var direction_x = sign(mouse_position.x - global_position.x)
-	var direction_y = sign(mouse_position.y - global_position.y)
+	var _direction_y = sign(mouse_position.y - global_position.y)
 	
 	if on_ground:
 		cur_jumps = 5
