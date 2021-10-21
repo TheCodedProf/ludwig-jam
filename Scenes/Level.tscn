@@ -1,11 +1,259 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Wall.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/temp/tilesheet_complete_2X.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Level.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MainMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/EscapeMenu.tscn" type="PackedScene" id=6]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 128, 0, 0, 128, 128, 128, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 0, 0, 128, 128, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+points = PoolVector2Array( 0, 128, 128, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+points = PoolVector2Array( 0, 0, 0, 0, 128, 128, 0, 128 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
+
+[sub_resource type="TileSet" id=21]
+0/name = "tilesheet_complete_2X.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 1152, 384 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 8, 0 )
+0/autotile/tile_size = Vector2( 32, 32 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tilesheet_complete_2X.png 1"
+1/texture = ExtResource( 2 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 1152, 384 )
+1/tile_mode = 2
+1/autotile/icon_coordinate = Vector2( 0, 0 )
+1/autotile/tile_size = Vector2( 128, 128 )
+1/autotile/spacing = 0
+1/autotile/occluder_map = [  ]
+1/autotile/navpoly_map = [  ]
+1/autotile/priority_map = [  ]
+1/autotile/z_index_map = [  ]
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "tilesheet_complete_2X.png 2"
+2/texture = ExtResource( 2 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 1152, 384 )
+2/tile_mode = 2
+2/autotile/icon_coordinate = Vector2( 0, 0 )
+2/autotile/tile_size = Vector2( 128, 128 )
+2/autotile/spacing = 0
+2/autotile/occluder_map = [  ]
+2/autotile/navpoly_map = [  ]
+2/autotile/priority_map = [  ]
+2/autotile/z_index_map = [  ]
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 8 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 9 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 10 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 11 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 12 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 13 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 14 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 3, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 15 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 4, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 16 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 5, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 17 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 18 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 7, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 19 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 8, 1 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 20 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -14,260 +262,10 @@ script = ExtResource( 4 )
 position = Vector2( 1224, 840 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+visible = false
 position = Vector2( 0, -104 )
 current = true
 zoom = Vector2( 1.5, 1.5 )
-
-[node name="Walls" type="Node" parent="."]
-
-[node name="Wall2" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 1016 )
-
-[node name="Wall3" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 64, 1016 )
-
-[node name="Wall4" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 128, 1016 )
-
-[node name="Wall5" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 192, 1016 )
-
-[node name="Wall6" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 256, 1016 )
-
-[node name="Wall7" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 320, 1016 )
-
-[node name="Wall8" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 384, 1016 )
-
-[node name="Wall9" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 448, 1016 )
-
-[node name="Wall10" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 512, 1016 )
-
-[node name="Wall45" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 472, 720 )
-
-[node name="Wall46" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 536, 720 )
-
-[node name="Wall47" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 600, 720 )
-
-[node name="Wall48" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 664, 720 )
-
-[node name="Wall49" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 728, 720 )
-
-[node name="Wall50" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 792, 720 )
-
-[node name="Wall51" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 856, 720 )
-
-[node name="Wall52" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 920, 720 )
-
-[node name="Wall53" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1128, 448 )
-
-[node name="Wall54" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1192, 448 )
-
-[node name="Wall55" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1256, 448 )
-
-[node name="Wall56" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1320, 448 )
-
-[node name="Wall57" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1384, 448 )
-
-[node name="Wall58" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1448, 448 )
-
-[node name="Wall59" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1512, 448 )
-
-[node name="Wall60" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1576, 448 )
-
-[node name="Wall61" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 424, 200 )
-
-[node name="Wall62" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 488, 200 )
-
-[node name="Wall63" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 552, 200 )
-
-[node name="Wall64" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 616, 200 )
-
-[node name="Wall65" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 680, 200 )
-
-[node name="Wall66" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 744, 200 )
-
-[node name="Wall67" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 808, 200 )
-
-[node name="Wall68" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 872, 200 )
-
-[node name="Wall69" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1144, -16 )
-
-[node name="Wall70" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1208, -16 )
-
-[node name="Wall71" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1272, -16 )
-
-[node name="Wall72" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1336, -16 )
-
-[node name="Wall73" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1400, -16 )
-
-[node name="Wall74" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1464, -16 )
-
-[node name="Wall75" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1528, -16 )
-
-[node name="Wall76" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1592, -16 )
-
-[node name="Wall77" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 416, -168 )
-
-[node name="Wall78" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 480, -168 )
-
-[node name="Wall79" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 544, -168 )
-
-[node name="Wall80" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 608, -168 )
-
-[node name="Wall81" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 672, -168 )
-
-[node name="Wall82" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 736, -168 )
-
-[node name="Wall83" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 800, -168 )
-
-[node name="Wall84" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 864, -168 )
-
-[node name="Wall11" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 576, 1016 )
-
-[node name="Wall12" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 640, 1016 )
-
-[node name="Wall32" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 760 )
-
-[node name="Wall33" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 888 )
-
-[node name="Wall43" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 952 )
-
-[node name="Wall44" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 952 )
-
-[node name="Wall34" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 824 )
-
-[node name="Wall35" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 632 )
-
-[node name="Wall36" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 696 )
-
-[node name="Wall37" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 632 )
-
-[node name="Wall38" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 824 )
-
-[node name="Wall39" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 888 )
-
-[node name="Wall40" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 0, 696 )
-
-[node name="Wall41" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 568 )
-
-[node name="Wall42" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 760 )
-
-[node name="Wall13" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 704, 1016 )
-
-[node name="Wall14" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 768, 1016 )
-
-[node name="Wall15" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 832, 1016 )
-
-[node name="Wall16" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 896, 1016 )
-
-[node name="Wall17" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 960, 1016 )
-
-[node name="Wall18" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1024, 1016 )
-
-[node name="Wall19" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1088, 1016 )
-
-[node name="Wall20" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1152, 1016 )
-
-[node name="Wall21" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1216, 1016 )
-
-[node name="Wall22" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1280, 1016 )
-
-[node name="Wall23" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1344, 1016 )
-
-[node name="Wall24" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1408, 1016 )
-
-[node name="Wall25" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1472, 1016 )
-
-[node name="Wall26" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1536, 1016 )
-
-[node name="Wall27" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1600, 1016 )
-
-[node name="Wall28" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1664, 1016 )
-
-[node name="Wall29" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1728, 1016 )
-
-[node name="Wall30" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1792, 1016 )
-
-[node name="Wall31" parent="Walls" instance=ExtResource( 2 )]
-position = Vector2( 1856, 1016 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -281,3 +279,8 @@ visible = false
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 5 )]
 pause_mode = 0
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 21 )
+format = 1
+tile_data = PoolIntArray( 589858, 2, 65537, 589860, 2, 6, 589863, 2, 6, 720928, 2, 65537, 851998, 2, 65537, 983040, 2, 2, 983042, 2, 2, 983044, 2, 2, 983046, 2, 2, 983048, 2, 2, 983050, 2, 2, 983052, 2, 2, 983054, 2, 2, 983056, 2, 2, 983058, 2, 2, 983060, 2, 2, 983062, 2, 2, 983064, 2, 2, 983066, 2, 2, 983068, 2, 2 )
