@@ -16,4 +16,5 @@ func _on_ReturnToMenu_pressed():
 	visible = false
 
 func _on_ReturnToGame_pressed():
+	visible = false
 	get_tree().paused = false

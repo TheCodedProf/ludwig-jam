@@ -13,6 +13,10 @@ var fly_force = 600 * 4
 var fly_hold_time = 0.1
 var local_hold_time = 0
 var cur_jumps = 5
+var starting_position = Vector2(1224, 946)
+
+func _ready():
+	position = starting_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,3 +64,7 @@ func on_collision_x():
 func on_collision_y():
 	velocity.y = 0
 	zero_remainder_y()
+
+
+func _on_DeathBarrier_area_entered(_area):
+	position = starting_position
