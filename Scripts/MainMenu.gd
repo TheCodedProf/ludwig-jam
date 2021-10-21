@@ -13,14 +13,19 @@ func _on_Quit_pressed():
 func _on_StartGame_pressed():
 	$Background/GameSelect.visible = !$Background/GameSelect.visible
 
+# TODO: fix kill_velocity values
 func _on_Otto_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 600 * 4
+	$"../../Player".kill_velocity = 50
+	$"../../Player".kill()
 	self.visible = false
 
 func _on_Ludwig_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 600 * 8
+	$"../../Player".kill_velocity = 150
+	$"../../Player".kill()
 	self.visible = false
 
 func return_to_menu():

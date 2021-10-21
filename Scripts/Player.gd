@@ -10,6 +10,7 @@ var jumps = 3
 var fly_force
 var can_fly = true
 var starting_position = Vector2(1224, 886)
+var kill_velocity = 0
 
 func _ready():
 	position = starting_position
@@ -48,6 +49,12 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP, false, 2)
 	
+	# kills the player for moving to fast into an object
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if(collision.remainder.y > kill_velocity || collision.remainder.x > kill_velocity || collision.remainder.y < -kill_velocity || collision.remainder.x < -kill_velocity ):
+			kill()
+	
 	# TODO: add player animation
 	if direction_x < 0:
 		animated_sprite.flip_h = true
@@ -57,6 +64,8 @@ func _physics_process(delta):
 func create_fly_timer(delta):
 	yield(get_tree().create_timer(.35), "timeout")
 	can_fly = true
+
+
 
 func kill():
 	position = starting_position
