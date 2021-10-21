@@ -2,13 +2,17 @@
 
 [ext_resource path="res://Assets/Fonts/arial.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/arialbd.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/Control.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/EscapeMenu.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
 size = 26
 font_data = ExtResource( 1 )
 
@@ -16,11 +20,7 @@ font_data = ExtResource( 1 )
 size = 26
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
-size = 26
-font_data = ExtResource( 1 )
-
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=5]
 script/source = "extends Button
 
 
@@ -88,7 +88,7 @@ __meta__ = {
 [node name="ReturnToGame" type="Button" parent="Panel/VBoxContainer"]
 margin_right = 354.0
 margin_bottom = 36.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 text = "Return To Game"
 flat = true
 align = 2
@@ -100,7 +100,7 @@ __meta__ = {
 margin_top = 61.0
 margin_right = 354.0
 margin_bottom = 97.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Return To Menu"
 flat = true
 align = 2
@@ -112,11 +112,11 @@ __meta__ = {
 margin_top = 122.0
 margin_right = 354.0
 margin_bottom = 158.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Quit Game"
 flat = true
 align = 2
-script = SubResource( 3 )
+script = SubResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

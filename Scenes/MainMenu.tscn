@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/Fonts/arial.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/arialbd.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/MainMenu.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=3]
 [ext_resource path="res://Assets/label.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=1]

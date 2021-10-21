@@ -14,10 +14,6 @@ config/name="Ludwig-jam"
 run/main_scene="res://Scenes/Level.tscn"
 config/icon="res://icon.png"
 
-[autoload]
-
-Game="*res://Scripts/Game.gd"
-
 [display]
 
 window/size/width=1920
