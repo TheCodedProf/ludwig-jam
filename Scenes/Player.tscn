@@ -11,7 +11,6 @@
 [ext_resource path="res://Assets/Sprites/Adventurer/Individual Sprites/adventurer-idle-01.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Sprites/Adventurer/Individual Sprites/adventurer-run-02.png" type="Texture" id=10]
 [ext_resource path="res://Assets/Sprites/Adventurer/Individual Sprites/adventurer-run-05.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Hitbox.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -26,8 +25,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="Player" type="Node2D"]
-position = Vector2( 215.713, 252.183 )
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 48 )
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 216, 248 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
@@ -38,11 +40,9 @@ position = Vector2( -0.176773, -1.90735e-06 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "flight"
-frame = 2
+frame = 4
 playing = true
 
-[node name="Hitbox" parent="." instance=ExtResource( 21 )]
-x = -16
-y = -34
-width = 32
-height = 104
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16, 24 )
+shape = SubResource( 2 )
