@@ -163,7 +163,7 @@ points = PoolVector2Array( 128, 128, 0, 128, 128, 0, 128, 0 )
 script = ExtResource( 4 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1224, 840 )
+position = Vector2( 1224, 886 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 0, -104 )
@@ -173,6 +173,7 @@ zoom = Vector2( 1.5, 1.5 )
 [node name="FadeBlack" type="CanvasLayer" parent="Player"]
 
 [node name="Sprite" type="Sprite" parent="Player/FadeBlack"]
+visible = false
 position = Vector2( 960, 540 )
 texture = ExtResource( 7 )
 region_enabled = true

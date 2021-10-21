@@ -9,6 +9,10 @@ var max_fall = 6000 # fall speed
 var jumps = 3
 var fly_force
 var can_fly = true
+var starting_position = Vector2(1224, 886)
+
+func _ready():
+	position = starting_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -53,3 +57,6 @@ func _physics_process(delta):
 func create_fly_timer(delta):
 	yield(get_tree().create_timer(.35), "timeout")
 	can_fly = true
+
+func kill():
+	position = starting_position
