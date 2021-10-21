@@ -27,13 +27,13 @@ func _process(delta):
 	
 	if on_ground:
 		cur_jumps = 5
-		$"../CanvasLayer/UI".update_jumps(cur_jumps)
+		$"../GUI/UI".update_jumps(cur_jumps)
 		animated_sprite.play("idle")
 	
 	# flying feels like giga shit lmao
 	if flying && cur_jumps != 0:
 		cur_jumps -= 1
-		$"../CanvasLayer/UI".update_jumps(cur_jumps)
+		$"../GUI/UI".update_jumps(cur_jumps)
 		velocity.x = cos(mouse_angle) * fly_force
 		velocity.y = sin(mouse_angle) * fly_force
 		animated_sprite.play("flight")

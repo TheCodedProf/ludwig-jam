@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	pass
+	$Background/GameSelect.visible = false
 
 func _process(_delta):
 	if Input.is_action_just_pressed("toggle fullscreen"):
@@ -22,3 +22,7 @@ func _on_Ludwig_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 600 * 8
 	self.visible = false
+
+func return_to_menu():
+	$Background/GameSelect.visible = false
+	visible = true

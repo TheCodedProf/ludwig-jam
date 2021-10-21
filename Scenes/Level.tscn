@@ -269,12 +269,15 @@ position = Vector2( 1792, 1016 )
 [node name="Wall31" parent="Walls" instance=ExtResource( 2 )]
 position = Vector2( 1856, 1016 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GUI" type="CanvasLayer" parent="."]
+pause_mode = 2
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="UI" parent="GUI" instance=ExtResource( 3 )]
 margin_right = 120.0
 
-[node name="EscapeMenu" parent="CanvasLayer" instance=ExtResource( 6 )]
+[node name="EscapeMenu" parent="GUI" instance=ExtResource( 6 )]
+pause_mode = 0
 visible = false
 
-[node name="MainMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="MainMenu" parent="GUI" instance=ExtResource( 5 )]
+pause_mode = 0

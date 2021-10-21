@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Fonts/arial.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/Fonts/arialbd.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,14 @@
 [sub_resource type="DynamicFont" id=1]
 size = 48
 font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 26
+font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
@@ -54,10 +62,10 @@ __meta__ = {
 [node name="Label" type="Label" parent="Panel"]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -221.43
-margin_top = 20.2063
-margin_right = -20.4299
-margin_bottom = 76.2063
+margin_left = -237.43
+margin_top = 32.2063
+margin_right = -36.4299
+margin_bottom = 88.2063
 custom_fonts/font = SubResource( 1 )
 text = "Paused"
 align = 2
@@ -67,17 +75,52 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Panel"]
-margin_left = 1752.6
-margin_top = 171.344
-margin_right = 1888.6
-margin_bottom = 207.344
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+margin_left = 1531.56
+margin_top = 125.344
+margin_right = 1885.56
+margin_bottom = 296.344
+custom_constants/separation = 25
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToGame" type="Button" parent="Panel/VBoxContainer"]
+margin_right = 354.0
+margin_bottom = 36.0
+custom_fonts/font = SubResource( 5 )
+text = "Return To Game"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReturnToMenu" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 61.0
+margin_right = 354.0
+margin_bottom = 97.0
+custom_fonts/font = SubResource( 4 )
+text = "Return To Menu"
+flat = true
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer"]
+margin_top = 122.0
+margin_right = 354.0
+margin_bottom = 158.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit Game"
 flat = true
+align = 2
 script = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="Panel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ReturnToGame" to="." method="_on_ReturnToGame_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ReturnToMenu" to="." method="_on_ReturnToMenu_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
