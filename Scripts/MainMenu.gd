@@ -11,6 +11,7 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_StartGame_pressed():
+	$"../../Player".position = $"../../Player".starting_position
 	$Background/GameSelect.visible = !$Background/GameSelect.visible
 
 # TODO: fix kill_velocity values
