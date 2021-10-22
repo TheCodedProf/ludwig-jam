@@ -11,6 +11,7 @@ var fly_force
 var can_fly = true
 var starting_position = Vector2(1224, 886)
 var kill_velocity = 0
+var flaps = 0
 
 func _ready():
 	position = starting_position
@@ -35,6 +36,7 @@ func _physics_process(delta):
 		
 	# flying feels like giga shit lmao
 	if flying && jumps != 0 && can_fly:
+		flaps += 1
 		jumps -= 1
 		$"../GUI/HUD".update_jumps(jumps)
 		velocity.x = cos(mouse_angle) * fly_force
@@ -64,8 +66,6 @@ func _physics_process(delta):
 func create_fly_timer(delta):
 	yield(get_tree().create_timer(.35), "timeout")
 	can_fly = true
-
-
 
 func kill():
 	position = starting_position

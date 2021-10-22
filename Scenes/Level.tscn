@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/temp/tilesheet_complete_2X.png" type="Texture" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/EscapeMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/black.png" type="Texture" id=7]
 [ext_resource path="res://Scripts/FadeBlack.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/GUI.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/EndScreen.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 128, 128, 0, 128, 0, 0, 128, 0 )
@@ -184,6 +186,7 @@ script = ExtResource( 8 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 pause_mode = 2
+script = ExtResource( 9 )
 
 [node name="MainMenu" parent="GUI" instance=ExtResource( 5 )]
 pause_mode = 0
@@ -193,6 +196,8 @@ pause_mode = 0
 visible = false
 
 [node name="HUD" parent="GUI" instance=ExtResource( 3 )]
+
+[node name="EndScreen" parent="GUI" instance=ExtResource( 10 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 15 )
