@@ -1,5 +1,11 @@
 extends Control
 
+func reset_player():
+	$"../../".total_time = 0
+	$"../../Player".flaps = 0
+	$"../../Player".position = $"../../Player".starting_position
+	$"../../Player".velocity = Vector2.ZERO
+
 func _ready():
 	$Background/GameSelect.visible = false
 
@@ -11,9 +17,7 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_StartGame_pressed():
-	$"../../".total_time = 0
-	$"../../Player".flaps = 0
-	$"../../Player".position = $"../../Player".starting_position
+	reset_player()
 	$Background/GameSelect.visible = !$Background/GameSelect.visible
 
 # TODO: fix kill_velocity values, tune stun velocity
