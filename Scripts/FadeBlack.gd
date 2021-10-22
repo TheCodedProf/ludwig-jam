@@ -34,7 +34,7 @@ func _process(delta):
 		get_parent().get_parent().kill()
 		modulate = Color(0,0,0,0)
 	
-	if velocity == Vector2.ZERO:
+	if velocity == Vector2.ZERO || $"../../".is_hit_stun:
 		_tween_modulate(Color(0,0,0,1), 3, 2)
 	else:
 		_tween_modulate(Color(0,0,0,0), .1, 0)

@@ -25,12 +25,14 @@ func _on_Otto_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 2000
 	$"../../Player".stun_velocity = 20
+	#$"../../Player".stun_velocity.y = 18
 	self.visible = false
 
 func _on_Ludwig_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 4500
 	$"../../Player".stun_velocity = 150
+	#$"../../Player".stun_velocity.y = 120
 	self.visible = false
 
 func return_to_menu():
