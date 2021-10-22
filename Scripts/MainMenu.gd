@@ -11,6 +11,8 @@ func _on_Quit_pressed():
 	get_tree().quit()
 
 func _on_StartGame_pressed():
+	$"../../".total_time = 0
+	$"../../Player".flaps = 0
 	$"../../Player".position = $"../../Player".starting_position
 	$Background/GameSelect.visible = !$Background/GameSelect.visible
 
