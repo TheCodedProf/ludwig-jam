@@ -47,13 +47,18 @@ func _physics_process(delta):
 		velocity.y += sin(mouse_angle) * fly_force
 		velocity.y = direction_y * min(abs(velocity.y), max_vertical)
 		if velocity.y > -1500 && direction_y == -1:
-			print(velocity.y)
 			velocity.y = sin(mouse_angle) * fly_force
 
 		can_fly = false
 		create_fly_timer(delta, .2)
 		animated_sprite.play("flight")
 	
+	if is_on_wall():
+		for i in get_slide_count():
+			var collision = get_slide_collision(i)
+			velocity.x += collision.remainder.x * 50
+			print(velocity.x)
+
 	# update velocity
 	velocity.x = move_toward(velocity.x, 0, run_accel * delta)
 	velocity.y = move_toward(velocity.y, max_fall, gravity * delta)
@@ -83,7 +88,6 @@ func create_fly_timer(delta, delay):
 func kill():
 	velocity = Vector2.ZERO
 	position = starting_position
-
 
 func _on_DeathBarrier_entered(body):
 	kill()
