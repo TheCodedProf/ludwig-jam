@@ -7,11 +7,11 @@ var run_accel = 3800 # how fast you accelerate left and right
 var gravity = 5000 # overall gravity modifier (both jump and fall)
 var max_fall = 6000 # fall speed
 var jumps = 3
-var fly_force
 var can_fly = true
 var starting_position = Vector2(1224, 886)
-var kill_velocity = 0
+var stun_velocity = 0
 var flaps = 0
+var fly_force = 0
 
 func _ready():
 	position = starting_position
@@ -39,10 +39,12 @@ func _physics_process(delta):
 		flaps += 1
 		jumps -= 1
 		$"../GUI/HUD".update_jumps(jumps)
-		velocity.x = cos(mouse_angle) * fly_force
+		velocity.x += cos(mouse_angle) * fly_force
+		if velocity.y < 0:
+			velocity.y = 0
 		velocity.y = sin(mouse_angle) * fly_force
 		can_fly = false
-		create_fly_timer(delta)
+		create_fly_timer(delta, .2)
 		animated_sprite.play("flight")
 	
 	# update velocity
@@ -54,21 +56,27 @@ func _physics_process(delta):
 	# kills the player for moving to fast into an object
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if (collision.remainder.y > kill_velocity || 
-			collision.remainder.x > kill_velocity ||
-			collision.remainder.y < -kill_velocity ||
-			collision.remainder.x < -kill_velocity):
-				kill()
+		if (collision.remainder.x > stun_velocity ||
+			collision.remainder.y < -stun_velocity ||
+			collision.remainder.x < -stun_velocity):
+				print(collision.remainder)
+				can_fly = false
+				create_fly_timer(delta, 1.5)
 	
 	# TODO: add player animation
+	$Arrow.rotation = mouse_angle + PI/2
 	if direction_x < 0:
 		animated_sprite.flip_h = true
 	else:
 		animated_sprite.flip_h = false
 
-func create_fly_timer(delta):
-	yield(get_tree().create_timer(.25), "timeout")
+func create_fly_timer(delta, delay):
+	yield(get_tree().create_timer(delay), "timeout")
 	can_fly = true
 
 func kill():
 	position = starting_position
+
+
+func _on_DeathBarrier_entered(body):
+	kill()

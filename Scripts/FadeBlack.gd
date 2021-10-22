@@ -35,6 +35,6 @@ func _process(delta):
 		modulate = Color(0,0,0,0)
 	
 	if velocity == Vector2.ZERO:
-		_tween_modulate(Color(0,0,0,1), 5, 2)
+		_tween_modulate(Color(0,0,0,1), 3, 2)
 	else:
 		_tween_modulate(Color(0,0,0,0), .1, 0)

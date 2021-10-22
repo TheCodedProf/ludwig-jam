@@ -4,6 +4,5 @@ func _ready():
 	visible = false
 
 func win(flaps, time):
-	$BG/Score.text = str(flaps)
-	$BG/Time.text = str(floor(time / 60)) + ":" + str((int(time)%60))
+	$BG/Content.text = "You completed the game in %02d:%02d with %d flaps" % [floor(time / 60), int(time)%60, flaps]
 	visible = true

@@ -16,16 +16,14 @@ func _on_StartGame_pressed():
 # TODO: fix kill_velocity values
 func _on_Otto_pressed():
 	get_tree().paused = false
-	$"../../Player".fly_force = 600 * 4
-	$"../../Player".kill_velocity = 50
-	$"../../Player".kill()
+	$"../../Player".fly_force = 2000
+	$"../../Player".stun_velocity = 20
 	self.visible = false
 
 func _on_Ludwig_pressed():
 	get_tree().paused = false
-	$"../../Player".fly_force = 600 * 8
-	$"../../Player".kill_velocity = 150
-	$"../../Player".kill()
+	$"../../Player".fly_force = 4500
+	$"../../Player".stun_velocity = 150
 	self.visible = false
 
 func return_to_menu():
