@@ -10,5 +10,6 @@ func _ready():
 func _process(delta):
 	total_time += delta
 
-func win():
+func _on_win_area_entered(area):
 	$GUI/EndScreen.win($Player.flaps, total_time)
+	get_tree().paused = true

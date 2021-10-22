@@ -24,7 +24,7 @@ func _physics_process(delta):
 	var mouse_position = get_global_mouse_position()
 	var mouse_angle = get_angle_to(mouse_position)
 	var direction_x = sign(mouse_position.x - global_position.x)
-	var _direction_y = sign(mouse_position.y - global_position.y)
+	var direction_y = sign(mouse_position.y - global_position.y)
 	
 	if is_on_floor():
 		jumps = 3
@@ -54,8 +54,11 @@ func _physics_process(delta):
 	# kills the player for moving to fast into an object
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if(collision.remainder.y > kill_velocity || collision.remainder.x > kill_velocity || collision.remainder.y < -kill_velocity || collision.remainder.x < -kill_velocity ):
-			kill()
+		if (collision.remainder.y > kill_velocity || 
+			collision.remainder.x > kill_velocity ||
+			collision.remainder.y < -kill_velocity ||
+			collision.remainder.x < -kill_velocity):
+				kill()
 	
 	# TODO: add player animation
 	if direction_x < 0:
@@ -64,7 +67,7 @@ func _physics_process(delta):
 		animated_sprite.flip_h = false
 
 func create_fly_timer(delta):
-	yield(get_tree().create_timer(.35), "timeout")
+	yield(get_tree().create_timer(.25), "timeout")
 	can_fly = true
 
 func kill():

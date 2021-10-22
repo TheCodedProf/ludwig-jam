@@ -16,7 +16,7 @@ func _tween_modulate(target:Color, duration:float, delay:float) -> void:
 		self,
 		"_modulate_target",
 		duration,
-		Tween.TRANS_EXPO,
+		Tween.TRANS_LINEAR,
 		Tween.EASE_OUT_IN,
 		delay
 	)
