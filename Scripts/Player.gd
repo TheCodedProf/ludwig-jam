@@ -34,6 +34,8 @@ func _physics_process(delta):
 		animated_sprite.play("idle")
 	elif velocity.y > 0:
 		gravity += 10
+	elif velocity.y < 0:
+		gravity = 5000
 		
 	# flying feels like giga shit lmao
 	if flying && jumps != 0 && can_fly:
