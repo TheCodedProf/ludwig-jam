@@ -22,8 +22,7 @@ __meta__ = {
 [node name="BG" type="NinePatchRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_right = 7.99988
+margin_right = -0.00012207
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
