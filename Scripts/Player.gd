@@ -2,8 +2,9 @@ extends KinematicBody2D
 onready var animated_sprite = $AnimatedSprite
 
 var velocity = Vector2.ZERO # set velocity to o,o
-var max_run = 800 # max left and right speed
-var run_accel = 3800 # how fast you accelerate left and right
+var max_horizontal = 5000 # max left and right speed
+var max_vertical = 3500
+var run_accel = 4000 # how fast you accelerate left and right
 var gravity = 5000 # overall gravity modifier (both jump and fall)
 var max_fall = 6000 # fall speed
 var jumps = 3
@@ -40,9 +41,13 @@ func _physics_process(delta):
 		jumps -= 1
 		$"../GUI/HUD".update_jumps(jumps)
 		velocity.x += cos(mouse_angle) * fly_force
-		if velocity.y < 0:
-			velocity.y = 0
-		velocity.y = sin(mouse_angle) * fly_force
+		velocity.x = direction_x * min(abs(velocity.x), max_horizontal)
+		velocity.y += sin(mouse_angle) * fly_force
+		velocity.y = direction_y * min(abs(velocity.y), max_vertical)
+		if velocity.y > -1500 && direction_y == -1:
+			print(velocity.y)
+			velocity.y = sin(mouse_angle) * fly_force
+
 		can_fly = false
 		create_fly_timer(delta, .2)
 		animated_sprite.play("flight")
@@ -56,10 +61,9 @@ func _physics_process(delta):
 	# kills the player for moving to fast into an object
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if (collision.remainder.x > stun_velocity ||
+		if ((collision.remainder.x > stun_velocity ||
 			collision.remainder.y < -stun_velocity ||
-			collision.remainder.x < -stun_velocity):
-				print(collision.remainder)
+			collision.remainder.x < -stun_velocity) && !is_on_floor()):
 				can_fly = false
 				create_fly_timer(delta, 1.5)
 	
@@ -75,6 +79,7 @@ func create_fly_timer(delta, delay):
 	can_fly = true
 
 func kill():
+	velocity = Vector2.ZERO
 	position = starting_position
 
 

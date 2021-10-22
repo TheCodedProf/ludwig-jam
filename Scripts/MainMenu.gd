@@ -14,7 +14,7 @@ func _on_StartGame_pressed():
 	$"../../Player".position = $"../../Player".starting_position
 	$Background/GameSelect.visible = !$Background/GameSelect.visible
 
-# TODO: fix kill_velocity values
+# TODO: fix kill_velocity values, tune stun velocity
 func _on_Otto_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 2000
