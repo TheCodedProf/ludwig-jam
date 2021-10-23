@@ -2,14 +2,14 @@ extends KinematicBody2D
 onready var animated_sprite = $AnimatedSprite
 
 var velocity = Vector2.ZERO # set velocity to o,o
-var max_horizontal = 5000 # max left and right speed
-var max_vertical = 3500
-var run_accel = 4000 # how fast you accelerate left and right
-var gravity = 5000 # overall gravity modifier (both jump and fall)
-var max_fall = 6000 # fall speed
-var jumps = 5 # set current jumps
+var max_horizontal = 1250 # max left and right speed
+var max_vertical = 750
+var run_accel = 500 # how fast you accelerate left and right
+var gravity = 1750 # overall gravity modifier (both jump and fall)
+var max_fall = 500 # fall speed
+var jumps = 3 # set current jumps
 var can_fly = true
-var starting_position = Vector2(1224, 886)
+var starting_position = Vector2(16, -20.000816)
 var stun_velocity = 0
 var flaps = 0
 var fly_force = 0
@@ -22,6 +22,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	print(position)
 	var flying = Input.is_action_just_pressed("wing_flap")
 	
 	# grabs mouse position
@@ -31,14 +32,15 @@ func _physics_process(delta):
 	direction_y = sign(mouse_position.y - global_position.y)
 	
 	if is_on_floor():
-		jumps = 5
-		gravity = 5000
+		velocity.x *= .85
+		jumps = 3
+		gravity = 1750
 		$"../GUI/HUD".update_jumps(jumps)
 		animated_sprite.play("idle")
 	elif velocity.y > 0:
 		gravity += 10 * delta
 	elif velocity.y < 0:
-		gravity = 5000
+		gravity = 1750
 		
 	if !is_on_floor():
 		# hitstuns the player for moving to fast into an object
@@ -97,8 +99,8 @@ func hit_stun(delta):
 		if (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
 			!is_on_floor()):
-				velocity.x = -collision.remainder.x * 100
-				velocity.y = collision.remainder.y * 100
+				#velocity.x = -collision.remainder.x * 100
+				#velocity.y = collision.remainder.y * 100
 				is_hit_stun = true
 				create_fly_timer(1.5)
 				is_hit_stun = false

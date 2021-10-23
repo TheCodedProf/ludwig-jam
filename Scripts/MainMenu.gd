@@ -23,7 +23,7 @@ func _on_StartGame_pressed():
 # TODO: fix kill_velocity values, tune stun velocity
 func _on_Otto_pressed():
 	get_tree().paused = false
-	$"../../Player".fly_force = 2000
+	$"../../Player".fly_force = 500
 	$"../../Player".stun_velocity = 20
 	#$"../../Player".stun_velocity.y = 18
 	self.visible = false
