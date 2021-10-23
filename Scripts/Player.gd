@@ -36,7 +36,7 @@ func _physics_process(delta):
 		$"../GUI/HUD".update_jumps(jumps)
 		animated_sprite.play("idle")
 	elif velocity.y > 0:
-		gravity += 10
+		gravity += 10 * delta
 	elif velocity.y < 0:
 		gravity = 5000
 		
@@ -49,19 +49,13 @@ func _physics_process(delta):
 		flaps += 1
 		jumps -= 1
 		$"../GUI/HUD".update_jumps(jumps)
-		velocity.x += cos(mouse_angle) * fly_force
+		velocity.x = cos(mouse_angle) * fly_force
 		velocity.x = direction_x * min(abs(velocity.x), max_horizontal)
-		velocity.y += sin(mouse_angle) * fly_force
+		velocity.y = sin(mouse_angle) * fly_force
 		velocity.y = direction_y * min(abs(velocity.y), max_vertical)
 		if velocity.y > -1500 && direction_y == -1:
 			velocity.y = sin(mouse_angle) * fly_force
-		#create_fly_timer(.2)
 		animated_sprite.play("flight")
-	
-	if is_on_wall():
-		for i in get_slide_count():
-			var collision = get_slide_collision(i)
-			velocity.x += collision.remainder.x * 50
 
 	# update velocity
 	velocity.x = move_toward(velocity.x, 0, run_accel * delta)
@@ -88,6 +82,14 @@ func kill():
 func _on_DeathBarrier_entered(body):
 	kill()
 	
+# determins if its a hitstun or a ledge climb
+#func wall_collision():
+#	if ledge climb
+#		climb ledge
+#	else wall bounce
+#	if hitstun
+#		hitstun
+	
 # TODO: fix hitstun wall climb interaction
 func hit_stun(delta):
 	for i in get_slide_count():
@@ -95,8 +97,8 @@ func hit_stun(delta):
 		if (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
 			!is_on_floor()):
-				velocity.x = -collision.remainder.x
-				velocity.y = -collision.remainder.y
+				velocity.x = -collision.remainder.x * 100
+				velocity.y = collision.remainder.y * 100
 				is_hit_stun = true
 				create_fly_timer(1.5)
 				is_hit_stun = false
