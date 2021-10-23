@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilesets/pipe_set.png" type="Texture" id=2]
@@ -12,9 +12,14 @@
 [ext_resource path="res://Scenes/EndScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Tilesets/chain_set.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Tilesets/building_set.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Parallax/Tall Buildings.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Parallax/Backdrop stars.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Parallax/Small Buildings.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Parallax/Medium Buildings.png" type="Texture" id=16]
 
 [sub_resource type="LineShape2D" id=1]
-d = 516.48
+normal = Vector2( 5.05601e-07, -1 )
+d = 0.0749855
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 26, 0, 26, 32, 6, 32, 6, 0 )
@@ -870,118 +875,124 @@ points = PoolVector2Array( 128, 0, 128, 24, 76, 24, 76, 24, 76, 32, 52, 32, 52, 
 "shape": SubResource( 84 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 2, 2 ),
+"autotile_coord": Vector2( 1, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 85 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 3, 2 ),
+"autotile_coord": Vector2( 2, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 86 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 4, 2 ),
+"autotile_coord": Vector2( 3, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 87 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 5, 2 ),
+"autotile_coord": Vector2( 4, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 88 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 3, 1 ),
+"autotile_coord": Vector2( 5, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 89 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 3, 0 ),
+"autotile_coord": Vector2( 3, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 90 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 4, 0 ),
+"autotile_coord": Vector2( 3, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 91 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 5, 0 ),
+"autotile_coord": Vector2( 4, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 92 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 4, 1 ),
+"autotile_coord": Vector2( 5, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 93 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 5, 1 ),
+"autotile_coord": Vector2( 4, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 94 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 6, 0 ),
+"autotile_coord": Vector2( 5, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 95 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 7, 0 ),
+"autotile_coord": Vector2( 6, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 96 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 8, 0 ),
+"autotile_coord": Vector2( 7, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 97 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 6, 1 ),
+"autotile_coord": Vector2( 8, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 98 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 7, 1 ),
+"autotile_coord": Vector2( 6, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 99 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 8, 1 ),
+"autotile_coord": Vector2( 7, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 100 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 8, 2 ),
+"autotile_coord": Vector2( 8, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 101 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 6, 2 ),
+"autotile_coord": Vector2( 8, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 102 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 6, 3 ),
+"autotile_coord": Vector2( 6, 2 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 103 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 6, 3 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 104 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
 "autotile_coord": Vector2( 8, 3 ),
@@ -1032,6 +1043,56 @@ zoom = Vector2( 0.35, 0.35 )
 limit_left = -128
 limit_bottom = 32
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Player/Camera2D"]
+
+[node name="Farground" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Farground"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Background"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Middleground" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Middleground"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Forground" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Forground"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FadeBlack" type="CanvasLayer" parent="Player"]
 
 [node name="Sprite" type="Sprite" parent="Player/FadeBlack"]
@@ -1060,9 +1121,9 @@ visible = false
 [node name="EndScreen" parent="GUI" instance=ExtResource( 10 )]
 
 [node name="DeathBarrier" type="Area2D" parent="."]
+position = Vector2( 0, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBarrier"]
-position = Vector2( 0, 2000 )
 scale = Vector2( 10000, 1 )
 shape = SubResource( 1 )
 
