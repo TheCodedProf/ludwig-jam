@@ -406,6 +406,6 @@ export_presets.cfg
 data_*/
 
 # Build files
-/Build/*.zip
+/Build
 
 # End of https://www.toptal.com/developers/gitignore/api/godot,csharp
