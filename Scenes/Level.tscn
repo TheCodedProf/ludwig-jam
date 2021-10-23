@@ -1,4 +1,4 @@
-[gd_scene load_steps=119 format=2]
+[gd_scene load_steps=123 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/pipe_set.png" type="Texture" id=2]
@@ -12,9 +12,14 @@
 [ext_resource path="res://Scenes/EndScreen.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/chain_set.png" type="Texture" id=11]
 [ext_resource path="res://Assets/building_set.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Parallax/Tall Buildings.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Parallax/Backdrop stars.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Parallax/Small Buildings.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Parallax/Medium Buildings.png" type="Texture" id=16]
 
 [sub_resource type="LineShape2D" id=1]
-d = 516.48
+normal = Vector2( 5.05601e-07, -1 )
+d = 0.0749855
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 26, 0, 26, 32, 6, 32, 6, 0 )
@@ -1032,6 +1037,56 @@ zoom = Vector2( 0.35, 0.35 )
 limit_left = -128
 limit_bottom = 32
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Player/Camera2D"]
+
+[node name="Farground" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.05, 0.05 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Farground"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.1, 0.1 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Background"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Middleground" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.15, 0.15 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Middleground"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Forground" type="ParallaxLayer" parent="Player/Camera2D/ParallaxBackground"]
+motion_scale = Vector2( 0.2, 0.2 )
+motion_offset = Vector2( -256, 126 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Player/Camera2D/ParallaxBackground/Forground"]
+margin_top = -1080.0
+margin_right = 1920.0
+texture = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="FadeBlack" type="CanvasLayer" parent="Player"]
 
 [node name="Sprite" type="Sprite" parent="Player/FadeBlack"]
@@ -1060,9 +1115,9 @@ visible = false
 [node name="EndScreen" parent="GUI" instance=ExtResource( 10 )]
 
 [node name="DeathBarrier" type="Area2D" parent="."]
+position = Vector2( 0, 64 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathBarrier"]
-position = Vector2( 0, 2000 )
 scale = Vector2( 10000, 1 )
 shape = SubResource( 1 )
 
