@@ -24,7 +24,7 @@ func _on_StartGame_pressed():
 func _on_Otto_pressed():
 	get_tree().paused = false
 	$"../../Player".fly_force = 500
-	$"../../Player".stun_velocity = 20
+	$"../../Player".stun_velocity = 6.6
 	#$"../../Player".stun_velocity.y = 18
 	self.visible = false
 

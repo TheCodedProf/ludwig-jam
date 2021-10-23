@@ -22,7 +22,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	print(position)
 	var flying = Input.is_action_just_pressed("wing_flap")
 	
 	# grabs mouse position
@@ -41,10 +40,8 @@ func _physics_process(delta):
 		gravity += 10 * delta
 	elif velocity.y < 0:
 		gravity = 1750
-		
-	if !is_on_floor():
-		# hitstuns the player for moving to fast into an object
-		hit_stun(delta)
+	
+	wall_collision(delta)
 		
 	# flying feels like giga shit lmao
 	if flying && jumps != 0 && can_fly:
@@ -69,8 +66,12 @@ func _physics_process(delta):
 	$Arrow.rotation = mouse_angle + PI/2
 	if direction_x < 0:
 		animated_sprite.flip_h = true
+		$up.cast_to = Vector2(-9, 0)
+		$dw.cast_to = Vector2(-9, 0)
 	else:
 		animated_sprite.flip_h = false
+		$up.cast_to = Vector2(9, 0)
+		$dw.cast_to = Vector2(9, 0)
 
 func create_fly_timer(delay):
 	can_fly = false
@@ -92,15 +93,17 @@ func _on_DeathBarrier_entered(body):
 #	if hitstun
 #		hitstun
 	
-# TODO: fix hitstun wall climb interaction
-func hit_stun(delta):
+# TODO: fix hitstun wall climb interactio
+func wall_collision(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if (abs(collision.remainder.x) > abs(stun_velocity) ||
+		if $up.is_colliding() == false && $dw.is_colliding() == true:
+			velocity.x = collision.remainder.x * 55
+		elif (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
 			!is_on_floor()):
-				#velocity.x = -collision.remainder.x * 100
-				#velocity.y = collision.remainder.y * 100
+				velocity.x = -collision.remainder.x * 25
+				velocity.y = collision.remainder.y * 25
 				is_hit_stun = true
 				create_fly_timer(1.5)
 				is_hit_stun = false

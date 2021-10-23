@@ -1029,6 +1029,8 @@ position = Vector2( 16, -24 )
 position = Vector2( 0, -64 )
 current = true
 zoom = Vector2( 0.35, 0.35 )
+limit_left = -128
+limit_bottom = 32
 
 [node name="FadeBlack" type="CanvasLayer" parent="Player"]
 

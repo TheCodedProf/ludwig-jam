@@ -57,10 +57,20 @@ animation = "flight"
 frame = 2
 playing = true
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Hitbox" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 0, -16, -8, -8, -8, 16, 8, 16, 8, -8 )
 
 [node name="Arrow" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 12 )
 offset = Vector2( 0, -35 )
+
+[node name="up" type="RayCast2D" parent="."]
+position = Vector2( 0, -18 )
+enabled = true
+cast_to = Vector2( 9, 0 )
+
+[node name="dw" type="RayCast2D" parent="."]
+position = Vector2( 0, 18 )
+enabled = true
+cast_to = Vector2( 9, 0 )
