@@ -10,14 +10,6 @@
 [ext_resource path="res://Assets/Sprites/Floor_Bonk.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sound/bonk.mp3" type="AudioStream" id=9]
 
-[sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 4 )
-region = Rect2( 32, 0, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 32, 32 )
@@ -28,32 +20,40 @@ region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 4 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 4 )
-region = Rect2( 32, 32, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 4 )
-region = Rect2( 0, 64, 32, 32 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 4 )
-region = Rect2( 32, 64, 32, 32 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
 atlas = ExtResource( 4 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 4 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 4 )
 region = Rect2( 0, 96, 32, 32 )
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "flap",
 "speed": 5.0
@@ -75,22 +75,6 @@ region = Rect2( 0, 32, 32, 32 )
 atlas = ExtResource( 2 )
 region = Rect2( 32, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 32, 32, 32 )
-
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
@@ -103,27 +87,43 @@ region = Rect2( 32, 0, 32, 32 )
 atlas = ExtResource( 1 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=28]
-atlas = ExtResource( 8 )
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 8 )
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 7 )
 region = Rect2( 0, 32, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 7 )
+region = Rect2( 32, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 8 )
 region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=25]
 atlas = ExtResource( 6 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=26]
 atlas = ExtResource( 6 )
-region = Rect2( 0, 32, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 32, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=28]
 atlas = ExtResource( 6 )
 region = Rect2( 32, 32, 32, 32 )
 
@@ -134,22 +134,22 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "flight",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "bonk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
-"loop": false,
-"name": "flight",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 28 ), SubResource( 29 ) ],
+"frames": [ SubResource( 23 ), SubResource( 24 ) ],
 "loop": true,
 "name": "floor_bonk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "fall",
 "speed": 5.0
@@ -163,7 +163,7 @@ script = ExtResource( 5 )
 position = Vector2( 12, 2 )
 scale = Vector2( 0.6, 0.6 )
 z_index = -1
-frames = SubResource( 17 )
+frames = SubResource( 18 )
 animation = "idle"
 playing = true
 flip_h = true
@@ -172,8 +172,7 @@ flip_h = true
 position = Vector2( 7.45058e-08, -1.90735e-06 )
 z_index = -1
 frames = SubResource( 8 )
-animation = "bonk"
-frame = 3
+animation = "floor_bonk"
 playing = true
 flip_h = true
 
@@ -184,11 +183,13 @@ polygon = PoolVector2Array( 0, -16, -8, -8, -8, 16, 8, 16, 8, -8 )
 position = Vector2( 0, -18 )
 enabled = true
 cast_to = Vector2( 9, 0 )
+collision_mask = 2
 
 [node name="dw" type="RayCast2D" parent="."]
-position = Vector2( 0, 17 )
+position = Vector2( 0, 15 )
 enabled = true
 cast_to = Vector2( 9, 0 )
+collision_mask = 2
 
 [node name="Arrow" type="Sprite" parent="."]
 scale = Vector2( 0.5, 0.5 )

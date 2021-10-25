@@ -164,7 +164,7 @@ func wall_collision(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
 		if $up.is_colliding() == false && $dw.is_colliding() == true:
-			#print("climbing") TODO: FIX LEDGE CLIMBING STOPING MOVEMENT
+			print("climbing") #TODO: FIX LEDGE CLIMBING STOPING MOVEMENT
 			velocity.x = collision.remainder.x * 55
 		elif (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
