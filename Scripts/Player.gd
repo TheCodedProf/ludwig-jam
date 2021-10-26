@@ -113,3 +113,7 @@ func wall_collision(delta):
 
 func _on_5J_body_entered(body):
 	max_jumps = 5
+
+
+func _on_Finish_body_entered(body):
+	$"../GUI/EndScreen".visible = true

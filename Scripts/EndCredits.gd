@@ -1,8 +1,8 @@
-extends Node2D
+extends Control
 
-const section_time := 2.0
+const section_time := 0.7
 const line_time := 0.3
-const base_speed := 100
+const base_speed := 200
 const speed_up_multiplier := 10.0
 const title_color := Color.white
 
@@ -45,6 +45,9 @@ var credits = [
 	]
 ]
 
+#func _on_ready():
+	#var tweenNode = get_node("EndScreen")
+	#tweenNode.follow_property($"../BG/EndScreen","visible",true)
 
 func _process(delta):
 	var scroll_speed = base_speed * delta
@@ -94,6 +97,7 @@ func add_line():
 	lines.append(new_line)
 	if curr_line == 0:
 		new_line.add_color_override("font_color", title_color)
+		new_line.uppercase = true;
 		# new_line.set_size(title_size)
 	$CreditsContainer.add_child(new_line)
 	

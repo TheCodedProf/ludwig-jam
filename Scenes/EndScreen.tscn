@@ -72,4 +72,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Credits" type="Button" parent="BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -157.0
+margin_top = 92.0
+margin_right = 157.0
+margin_bottom = 162.0
+custom_fonts/font = ExtResource( 4 )
+text = "Credits"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="BG/MenuReturn" to="." method="_on_MenuReturn_pressed"]
+[connection signal="pressed" from="BG/Credits" to="." method="_on_Credits_pressed"]

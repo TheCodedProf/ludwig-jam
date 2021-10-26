@@ -10,3 +10,6 @@ func win(flaps, time):
 func _on_MenuReturn_pressed():
 	$"../MainMenu".return_to_menu()
 	visible = false
+
+func _on_Credits_pressed():
+	get_tree().change_scene("res://Scenes/EndCredits.tscn")
