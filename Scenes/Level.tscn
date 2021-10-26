@@ -1277,11 +1277,25 @@ __meta__ = {
 
 [node name="Arrow5" type="NinePatchRect" parent="."]
 show_behind_parent = true
-margin_left = 3656.65
-margin_top = -876.259
-margin_right = 3703.65
-margin_bottom = -852.259
+margin_left = 3226.53
+margin_top = -2026.29
+margin_right = 3273.53
+margin_bottom = -2002.29
 rect_rotation = 90.0
+rect_pivot_offset = Vector2( -359.953, 790.076 )
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow21" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 4492.73
+margin_top = -2045.67
+margin_right = 4539.73
+margin_bottom = -2021.67
+rect_rotation = 90.0
+rect_pivot_offset = Vector2( -359.953, 790.076 )
 texture = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1306,6 +1320,17 @@ margin_top = -575.943
 margin_right = 4983.8
 margin_bottom = -551.943
 rect_rotation = -33.9
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow22" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 3700.25
+margin_top = -564.489
+margin_right = 3747.25
+margin_bottom = -540.489
 texture = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
