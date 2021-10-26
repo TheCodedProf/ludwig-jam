@@ -21,6 +21,7 @@ var is_hit_stun = false
 var is_falling = false
 var fly_timer
 var fall_timer
+var climb
 
 func _ready():
 	position = starting_position
@@ -80,11 +81,11 @@ func _physics_process(delta):
 			animated_sprite.play("flight")
 			wing_sprite.play("flap")
 
-	wall_collision(delta)
-
 	# update velocity
 	velocity.x = move_toward(velocity.x, 0, run_accel * delta)
 	velocity.y = move_toward(velocity.y, max_fall, gravity * delta)
+	
+	wall_collision(delta)
 	
 	velocity = move_and_slide(velocity, Vector2.UP, false, 2)
 	
@@ -120,8 +121,8 @@ func _physics_process(delta):
 			wing_sprite.position = Vector2(12, 0)
 			wing_sprite.z_index = -1
 			wing_sprite.flip_v = false
-		$up.cast_to = Vector2(-9, 0)
-		$dw.cast_to = Vector2(-9, 0)
+		$up.cast_to = Vector2(-11, 0)
+		$dw.cast_to = Vector2(-11, 0)
 	else:
 		animated_sprite.flip_h = false
 		wing_sprite.flip_h = false
@@ -145,9 +146,8 @@ func _physics_process(delta):
 			wing_sprite.position = Vector2(-12, 0)
 			wing_sprite.z_index = -1
 			wing_sprite.flip_v = false
-		$up.cast_to = Vector2(9, 0)
-		$dw.cast_to = Vector2(9, 0)
-	
+		$up.cast_to = Vector2(11, 0)
+		$dw.cast_to = Vector2(11, 0)	
 
 func on_fly_timeout_complete():
 	is_hit_stun = false
@@ -161,11 +161,18 @@ func _on_DeathBarrier_entered(body):
 		
 # TODO: fix hitstun wall climb interactio
 func wall_collision(delta):
+	$up.force_raycast_update()
+	$dw.force_raycast_update()
+	var ucol = $up.is_colliding()
+	var dcol = $dw.is_colliding()
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if $up.is_colliding() == false && $dw.is_colliding() == true:
-			print("climbing") #TODO: FIX LEDGE CLIMBING STOPING MOVEMENT
+		if ucol == false && dcol == true:
+			#TODO: FIX LEDGE CLIMBING STOPING MOVEMENT
+			climb = true
+		elif dcol == false && climb == true:
 			velocity.x = collision.remainder.x * 55
+			print(velocity.x)
 		elif (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
 			!is_on_floor()):
@@ -175,3 +182,6 @@ func wall_collision(delta):
 				bonk_sound.play()
 				is_hit_stun = true
 				fly_timer.start()
+		if is_on_floor():
+			climb = false
+		print(ucol, dcol)
