@@ -76,56 +76,56 @@ atlas = ExtResource( 2 )
 region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=15]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=16]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=17]
-atlas = ExtResource( 1 )
+atlas = ExtResource( 7 )
 region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=18]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 0, 32, 32 )
+atlas = ExtResource( 7 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=19]
-atlas = ExtResource( 8 )
-region = Rect2( 0, 32, 32, 32 )
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=20]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 32, 32 )
+atlas = ExtResource( 6 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=21]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 0, 32, 32 )
+atlas = ExtResource( 6 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=22]
-atlas = ExtResource( 7 )
-region = Rect2( 0, 32, 32, 32 )
+atlas = ExtResource( 6 )
+region = Rect2( 32, 32, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=23]
-atlas = ExtResource( 7 )
-region = Rect2( 32, 32, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=24]
-atlas = ExtResource( 6 )
+atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=25]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
 region = Rect2( 32, 0, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=26]
-atlas = ExtResource( 6 )
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
 region = Rect2( 0, 32, 32, 32 )
 
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 32, 32 )
+
 [sub_resource type="AtlasTexture" id=27]
-atlas = ExtResource( 6 )
-region = Rect2( 32, 32, 32, 32 )
+atlas = ExtResource( 8 )
+region = Rect2( 0, 32, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=28]
 animations = [ {
@@ -134,24 +134,24 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
-"loop": true,
-"name": "flight",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 18 ), SubResource( 19 ) ],
-"loop": true,
-"name": "floor_bonk",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": true,
 "name": "bonk",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"frames": [ SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ) ],
 "loop": true,
 "name": "fall",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"loop": false,
+"name": "flight",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "floor_bonk",
 "speed": 5.0
 } ]
 
@@ -182,13 +182,13 @@ flip_h = true
 polygon = PoolVector2Array( 0, -16, -8, -8, -8, 16, 8, 16, 8, -8 )
 
 [node name="up" type="RayCast2D" parent="."]
-position = Vector2( 0, -14 )
+position = Vector2( 0, -17 )
 enabled = true
 cast_to = Vector2( 9, 0 )
 collision_mask = 2
 
 [node name="dw" type="RayCast2D" parent="."]
-position = Vector2( 0, 14 )
+position = Vector2( 0, 17 )
 enabled = true
 cast_to = Vector2( 9, 0 )
 collision_mask = 2

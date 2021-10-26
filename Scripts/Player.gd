@@ -81,11 +81,11 @@ func _physics_process(delta):
 			animated_sprite.play("flight")
 			wing_sprite.play("flap")
 
+	wall_collision(delta)
+
 	# update velocity
 	velocity.x = move_toward(velocity.x, 0, run_accel * delta)
 	velocity.y = move_toward(velocity.y, max_fall, gravity * delta)
-	
-	wall_collision(delta)
 	
 	velocity = move_and_slide(velocity, Vector2.UP, false, 2)
 	
@@ -161,18 +161,10 @@ func _on_DeathBarrier_entered(body):
 		
 # TODO: fix hitstun wall climb interactio
 func wall_collision(delta):
-	$up.force_raycast_update()
-	$dw.force_raycast_update()
-	var ucol = $up.is_colliding()
-	var dcol = $dw.is_colliding()
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if ucol == false && dcol == true:
-			#TODO: FIX LEDGE CLIMBING STOPING MOVEMENT
-			climb = true
-		elif dcol == false && climb == true:
+		if $up.is_colliding() == false && $dw.is_colliding() == true && !is_on_floor():
 			velocity.x = collision.remainder.x * 55
-			print(velocity.x)
 		elif (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
 			!is_on_floor()):
@@ -182,6 +174,3 @@ func wall_collision(delta):
 				bonk_sound.play()
 				is_hit_stun = true
 				fly_timer.start()
-		if is_on_floor():
-			climb = false
-		print(ucol, dcol)
