@@ -24,6 +24,7 @@ var fly_timer
 var fall_timer
 var climb
 var flap_pitch = 1
+var max_jumps = 5
 
 func _ready():
 	position = starting_position
@@ -51,7 +52,7 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		velocity.x *= .85
-		jumps = 3
+		jumps = max_jumps
 		gravity = 1750
 		flap_pitch = 1
 		$"../GUI/HUD".update_jumps(jumps)
@@ -189,3 +190,6 @@ func wall_collision(delta):
 				bonk_sound.play()
 				is_hit_stun = true
 				fly_timer.start()
+
+func _on_5J_area_entered(body):
+	max_jumps = 5
