@@ -16,6 +16,7 @@ var fly_force = 0
 var direction_x
 var direction_y
 var is_hit_stun = false
+var max_jumps = 3
 
 func _ready():
 	position = starting_position
@@ -32,7 +33,7 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		velocity.x *= .85
-		jumps = 3
+		jumps = max_jumps
 		gravity = 1750
 		$"../GUI/HUD".update_jumps(jumps)
 		animated_sprite.play("idle")
@@ -81,6 +82,7 @@ func create_fly_timer(delay):
 func kill():
 	velocity = Vector2.ZERO
 	position = starting_position
+	max_jumps = 3
 
 func _on_DeathBarrier_entered(body):
 	kill()
@@ -107,3 +109,7 @@ func wall_collision(delta):
 				is_hit_stun = true
 				create_fly_timer(1.5)
 				is_hit_stun = false
+
+
+func _on_5J_body_entered(body):
+	max_jumps = 5
