@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=131 format=2]
+=======
+[gd_scene load_steps=130 format=2]
+>>>>>>> cd07d08394aed3ca0e2e2b10d331ed18c25713ce
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilesets/pipe_set.png" type="Texture" id=2]
@@ -17,7 +21,12 @@
 [ext_resource path="res://Assets/Parallax/Medium Buildings.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Parallax/Tall Buildings.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/EndCredits.tscn" type="PackedScene" id=17]
+<<<<<<< HEAD
 [ext_resource path="res://Assets/Images/Casino.png" type="Texture" id=18]
+=======
+[ext_resource path="res://Assets/Images/clicktofly.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Images/5flap.png" type="Texture" id=19]
+>>>>>>> cd07d08394aed3ca0e2e2b10d331ed18c25713ce
 
 [sub_resource type="LineShape2D" id=1]
 normal = Vector2( 5.05601e-07, -1 )
@@ -1077,7 +1086,6 @@ zoom = Vector2( 0.35, 0.35 )
 limit_left = -128
 limit_bottom = 32
 smoothing_enabled = true
-smoothing_speed = 3.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Player/Camera2D"]
 
@@ -1179,11 +1187,20 @@ shape = SubResource( 2 )
 one_way_collision_margin = 0.0
 
 [node name="Finish" type="Area2D" parent="."]
+<<<<<<< HEAD
 position = Vector2( 10107.6, -1943.83 )
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
 position = Vector2( 4.60828, 0.543701 )
+=======
+position = Vector2( 9151.58, -1895.83 )
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2( -9039.58, 1431.83 )
+>>>>>>> cd07d08394aed3ca0e2e2b10d331ed18c25713ce
 shape = SubResource( 3 )
 
 [node name="Buildings" type="TileMap" parent="."]
@@ -1211,11 +1228,22 @@ collision_mask = 3
 format = 1
 tile_data = PoolIntArray( -8191808, 0, 917507, -8191804, 0, 393219, -8191800, 0, 1114115, -8191796, 0, 393219, -8191792, 0, 786435, -8126312, 0, 655363, -8126308, 0, 393219, -8126304, 0, 393219, -8126300, 0, 393219, -8126296, 0, 786435, -8126284, 0, 851971, -8126244, 0, 851971, -8126236, 0, 851971, -7929656, 0, 327683, -7864168, 0, 327683, -7864140, 0, 327683, -7864100, 0, 327683, -7864092, 0, 327683, -7667512, 0, 327683, -7602024, 0, 327683, -7601996, 0, 327683, -7601956, 0, 327683, -7601948, 0, 327683, -7405368, 0, 327683, -7339880, 0, 327683, -7339852, 0, 327683, -7339812, 0, 327683, -7339804, 0, 327683, -7143224, 0, 327683, -7077736, 0, 327683, -7077708, 0, 327683, -7077668, 0, 458755, -7077664, 0, 1114115, -7077660, 0, 524291, -6881080, 0, 327683, -6815592, 0, 327683, -6815564, 0, 327683, -6815544, 0, 327683, -6815520, 0, 327683, -6553448, 0, 327683, -6553420, 0, 327683, -6553400, 0, 327683, -6553376, 0, 327683, -6291304, 0, 327683, -6291276, 0, 327683, -6291256, 0, 327683, -6291232, 0, 327683, -6029156, 0, 393219, -6029152, 0, 393219, -6029148, 0, 393219, -5767159, 2, 0, -5767143, 2, 0, -5767131, 2, 0, -5767119, 2, 0, -5767103, 2, 0, -5767015, 2, 0, -5766999, 2, 0, -5766987, 2, 0, -5766967, 2, 0, -5766943, 2, 0, -5636087, 2, 65536, -5636071, 2, 65536, -5636059, 2, 65536, -5636047, 2, 65536, -5636031, 2, 65536, -5635943, 2, 65536, -5635927, 2, 65536, -5635915, 2, 65536, -5635895, 2, 65536, -5635871, 2, 65536, -5505015, 2, 65536, -5504999, 2, 65536, -5504987, 2, 65536, -5504975, 2, 65536, -5504959, 2, 65536, -5504871, 2, 65536, -5504855, 2, 65536, -5504843, 2, 65536, -5504823, 2, 65536, -5504799, 2, 65536, -5373943, 2, 65536, -5373927, 2, 65536, -5373915, 2, 65536, -5373903, 2, 65536, -5373887, 2, 65536, -5373799, 2, 65536, -5373783, 2, 65536, -5373771, 2, 65536, -5373751, 2, 65536, -5373727, 2, 65536, -5242871, 2, 65536, -5242855, 2, 65536, -5242843, 2, 65536, -5242831, 2, 65536, -5242815, 2, 65536, -5242727, 2, 65536, -5242711, 2, 65536, -5242699, 2, 65536, -5242679, 2, 65536, -5242655, 2, 65536, -5111799, 2, 131072, -5111783, 2, 131072, -5111771, 2, 131072, -5111759, 2, 131072, -5111743, 2, 131072, -5111655, 2, 131072, -5111639, 2, 131072, -5111627, 2, 131072, -5111607, 2, 131072, -5111583, 2, 131072 )
 
+<<<<<<< HEAD
 [node name="TileMap" type="TileMap" parent="."]
 z_index = -5
 tile_set = SubResource( 112 )
 format = 1
 tile_data = PoolIntArray( -2686830, 0, 0 )
+=======
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 2520, -304 )
+z_index = -2
+texture = ExtResource( 19 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -63, -50 )
+texture = ExtResource( 18 )
+>>>>>>> cd07d08394aed3ca0e2e2b10d331ed18c25713ce
 
 [connection signal="body_entered" from="DeathBarrier" to="Player" method="_on_DeathBarrier_entered"]
 [connection signal="body_entered" from="5J" to="Player" method="_on_5J_body_entered"]

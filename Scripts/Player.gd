@@ -24,7 +24,7 @@ var fly_timer
 var fall_timer
 var climb
 var flap_pitch = 1
-var max_jumps = 3
+var max_jumps = 50
 
 func _ready():
 	position = starting_position
@@ -55,6 +55,7 @@ func _physics_process(delta):
 		jumps = max_jumps
 		gravity = 1750
 		flap_pitch = 1
+		fall_timer.start()
 		$"../GUI/HUD".update_jumps(jumps)
 		if !is_hit_stun:
 			animated_sprite.play("idle")
@@ -62,13 +63,10 @@ func _physics_process(delta):
 		else:
 			animated_sprite.play("floor_bonk")
 			wing_sprite.play("idle")			
-		fall_timer.start()
 	elif velocity.y > 0:
 		gravity += 100 * delta
 	elif velocity.y < 0:
 		gravity = 1750
-	elif !is_on_ceiling():
-		fall_timer.stop()
 		
 	# flying feels like giga shit lmao
 	if flying && jumps != 0 && !is_hit_stun:
@@ -94,6 +92,7 @@ func _physics_process(delta):
 			flap_sound.pitch_scale = 3.25
 		else:
 			flap_sound.pitch_scale = 4
+		fall_timer.start()
 		flap_sound.play()
 		flap_pitch += 1
 
@@ -105,8 +104,7 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP, false, 2)
 	
-	if fall_timer.get_time_left() < 58.5:
-		print(fall_timer.get_time_left())
+	if fall_timer.get_time_left() < 59:
 		animated_sprite.play("fall")
 		is_falling = true
 	else:
@@ -199,5 +197,5 @@ func _on_5J_body_entered(body):
 	max_jumps = 5
 
 
-func _on_Finish_body_entered():
+func _on_Finish_body_entered(body):
 	$"../GUI/EndScreen".visible = true
