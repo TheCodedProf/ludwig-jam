@@ -24,7 +24,7 @@ var fly_timer
 var fall_timer
 var climb
 var flap_pitch = 1
-var max_jumps = 5
+var max_jumps = 3
 
 func _ready():
 	position = starting_position
@@ -169,8 +169,12 @@ func on_fly_timeout_complete():
 	is_hit_stun = false
 	
 func kill():
+	$Camera2D.smoothing_enabled = false
+	max_jumps = 3
 	velocity = Vector2.ZERO
 	position = starting_position
+	yield(get_tree().create_timer(1.0), "timeout")
+	$Camera2D.smoothing_enabled = true
 
 func _on_DeathBarrier_entered(body):
 	kill()
@@ -191,5 +195,9 @@ func wall_collision(delta):
 				is_hit_stun = true
 				fly_timer.start()
 
-func _on_5J_area_entered(body):
+func _on_5J_body_entered(body):
 	max_jumps = 5
+
+
+func _on_Finish_body_entered():
+	$"../GUI/EndScreen".visible = true

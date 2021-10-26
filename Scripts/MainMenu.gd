@@ -30,7 +30,7 @@ func _on_Otto_pressed():
 
 func _on_Ludwig_pressed():
 	get_tree().paused = false
-	$"../../Player".fly_force = 4500
+	$"../../Player".fly_force = 1000
 	$"../../Player".stun_velocity = 150
 	#$"../../Player".stun_velocity.y = 120
 	self.visible = false
