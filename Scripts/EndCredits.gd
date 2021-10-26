@@ -11,6 +11,8 @@ const title_color := Color.white
 var scroll_speed := base_speed
 var speed_up := false
 
+onready var tn = get_node("Tween")
+
 onready var line := $CreditsContainer/Line
 var started := false
 var finished := false
@@ -45,41 +47,38 @@ var credits = [
 	]
 ]
 
-#func _on_ready():
-	#var tweenNode = get_node("EndScreen")
-	#tweenNode.follow_property($"../BG/EndScreen","visible",true)
-
 func _process(delta):
-	var scroll_speed = base_speed * delta
-	
-	if section_next:
-		section_timer += delta * speed_up_multiplier if speed_up else delta
-		if section_timer >= section_time:
-			section_timer -= section_time
-			
-			if credits.size() > 0:
-				started = true
-				section = credits.pop_front()
-				curr_line = 0
+	if(visible):
+		var scroll_speed = base_speed * delta
+		
+		if section_next:
+			section_timer += delta * speed_up_multiplier if speed_up else delta
+			if section_timer >= section_time:
+				section_timer -= section_time
+				
+				if credits.size() > 0:
+					started = true
+					section = credits.pop_front()
+					curr_line = 0
+					add_line()
+		
+		else:
+			line_timer += delta * speed_up_multiplier if speed_up else delta
+			if line_timer >= line_time:
+				line_timer -= line_time
 				add_line()
-	
-	else:
-		line_timer += delta * speed_up_multiplier if speed_up else delta
-		if line_timer >= line_time:
-			line_timer -= line_time
-			add_line()
-	
-	if speed_up:
-		scroll_speed *= speed_up_multiplier
-	
-	if lines.size() > 0:
-		for l in lines:
-			l.rect_position.y -= scroll_speed
-			if l.rect_position.y < -l.get_line_height():
-				lines.erase(l)
-				l.queue_free()
-	elif started:
-		finish()
+		
+		if speed_up:
+			scroll_speed *= speed_up_multiplier
+		
+		if lines.size() > 0:
+			for l in lines:
+				l.rect_position.y -= scroll_speed
+				if l.rect_position.y < -l.get_line_height():
+					lines.erase(l)
+					l.queue_free()
+		elif started:
+			finish()
 
 
 func finish():
@@ -115,3 +114,7 @@ func _unhandled_input(event):
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
 		speed_up = false
+
+func _go():
+	visible = true
+	#tn.start()

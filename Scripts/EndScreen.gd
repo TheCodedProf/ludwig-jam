@@ -12,4 +12,4 @@ func _on_MenuReturn_pressed():
 	visible = false
 
 func _on_Credits_pressed():
-	get_tree().change_scene("res://Scenes/EndCredits.tscn")
+	$"../EndCredits"._go()

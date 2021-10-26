@@ -40,4 +40,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="EndCredits" type="Tween" parent="."]
+[node name="Tween" type="Tween" parent="."]
