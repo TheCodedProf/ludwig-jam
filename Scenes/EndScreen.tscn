@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/EndScreen.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Fonts/arialbd.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Assets/Images/MenuBG.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/endScreenText.tres" type="DynamicFont" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="EndScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -0.00012207
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="BG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -281.0
+margin_top = 135.0
+margin_right = 281.0
+margin_bottom = 279.0
+custom_fonts/font = SubResource( 1 )
+text = "YOU WIN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="Label" parent="BG"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 500.0
+margin_top = -221.5
+margin_right = -500.0
+margin_bottom = -146.5
+custom_fonts/font = ExtResource( 4 )
+text = "You completed SinCity in with a total of flaps"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuReturn" type="Button" parent="BG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -157.0
+margin_top = -35.0
+margin_right = 157.0
+margin_bottom = 35.0
+custom_fonts/font = ExtResource( 4 )
+text = "Return to main menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="BG/MenuReturn" to="." method="_on_MenuReturn_pressed"]

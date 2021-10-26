@@ -405,4 +405,7 @@ export_presets.cfg
 .mono/
 data_*/
 
+# Build files
+/Build
+
 # End of https://www.toptal.com/developers/gitignore/api/godot,csharp

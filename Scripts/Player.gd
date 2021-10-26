@@ -1,78 +1,115 @@
-extends "res://Scripts/Actor.gd"
+extends KinematicBody2D
 onready var animated_sprite = $AnimatedSprite
-onready var hitbox = $Hitbox
 
 var velocity = Vector2.ZERO # set velocity to o,o
-var max_run = 200 # max left and right speed
-var run_accel = 1200 # how fast you accelerate left and right
-var gravity = 1500 # overall gravity modifier (both jump and fall)
-var max_fall = 380 # fall speed
-var jump_force = -240 # how high you jump
-var jump_hold_time = 0.1 # how long you can hold jump to get extra height
-var fly_force = 600
-var fly_hold_time = 0.1
-var local_hold_time = 0
-var cur_jumps = 5
+var max_horizontal = 1250 # max left and right speed
+var max_vertical = 750
+var run_accel = 500 # how fast you accelerate left and right
+var gravity = 1750 # overall gravity modifier (both jump and fall)
+var max_fall = 500 # fall speed
+var jumps = 3 # set current jumps
+var can_fly = true
+var starting_position = Vector2(16, -20.000816)
+var stun_velocity = 0
+var flaps = 0
+var fly_force = 0
+var direction_x
+var direction_y
+var is_hit_stun = false
+var max_jumps = 3
+
+func _ready():
+	position = starting_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	var direction = sign(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"))
-	var mouse_dir = 0
-	var on_ground = Game.check_walls_collision(self, Vector2.DOWN)
-	
-	var jumping = Input.is_action_pressed("ui_up")
-	var crouching = Input.is_action_pressed("ui_down")
+func _physics_process(delta):
 	var flying = Input.is_action_just_pressed("wing_flap")
 	
 	# grabs mouse position
 	var mouse_position = get_global_mouse_position()
 	var mouse_angle = get_angle_to(mouse_position)
+	direction_x = sign(mouse_position.x - global_position.x)
+	direction_y = sign(mouse_position.y - global_position.y)
+	
+	if is_on_floor():
+		velocity.x *= .85
+		jumps = max_jumps
+		gravity = 1750
+		$"../GUI/HUD".update_jumps(jumps)
+		animated_sprite.play("idle")
+	elif velocity.y > 0:
+		gravity += 10 * delta
+	elif velocity.y < 0:
+		gravity = 1750
+	
+	wall_collision(delta)
 		
-	# jumping and gravity
-	if jumping && on_ground:
-		velocity.y = jump_force
-		local_hold_time = jump_hold_time
-	elif local_hold_time > 0:
-		if jumping:
-			velocity.y = jump_force
-		else:
-			local_hold_time = 0
-	
-	local_hold_time -= delta
-	
 	# flying feels like giga shit lmao
-	if flying && cur_jumps != 0:
-		cur_jumps -= 1
+	if flying && jumps != 0 && can_fly:
+		flaps += 1
+		jumps -= 1
+		$"../GUI/HUD".update_jumps(jumps)
 		velocity.x = cos(mouse_angle) * fly_force
+		velocity.x = direction_x * min(abs(velocity.x), max_horizontal)
 		velocity.y = sin(mouse_angle) * fly_force
-
+		velocity.y = direction_y * min(abs(velocity.y), max_vertical)
+		if velocity.y > -1500 && direction_y == -1:
+			velocity.y = sin(mouse_angle) * fly_force
+		animated_sprite.play("flight")
 
 	# update velocity
-	velocity.x = move_toward(velocity.x, max_run * direction, run_accel * delta)
+	velocity.x = move_toward(velocity.x, 0, run_accel * delta)
 	velocity.y = move_toward(velocity.y, max_fall, gravity * delta)
 	
-	# move player & check for collisions
-	move_x(velocity.x * delta, funcref(self, "on_collision_x"))
-	move_y(velocity.y * delta, funcref(self, "on_collision_y"))
+	velocity = move_and_slide(velocity, Vector2.UP, false, 2)
 	
-	# animation
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
+	# TODO: add player animation
+	$Arrow.rotation = mouse_angle + PI/2
+	if direction_x < 0:
 		animated_sprite.flip_h = true
-		
-	if crouching && on_ground:
-		animated_sprite.play("crouch")
-	elif direction != 0:
-		animated_sprite.play("run")
+		$up.cast_to = Vector2(-9, 0)
+		$dw.cast_to = Vector2(-9, 0)
 	else:
-		animated_sprite.play("idle")
-	
-# collision functions
-func on_collision_x():
-	velocity.x = 0
-	zero_remainder_x()
+		animated_sprite.flip_h = false
+		$up.cast_to = Vector2(9, 0)
+		$dw.cast_to = Vector2(9, 0)
 
-func on_collision_y():
-	velocity.y = 0
-	zero_remainder_y()
+func create_fly_timer(delay):
+	can_fly = false
+	yield(get_tree().create_timer(delay), "timeout")
+	can_fly = true
+	
+func kill():
+	velocity = Vector2.ZERO
+	position = starting_position
+	max_jumps = 3
+
+func _on_DeathBarrier_entered(body):
+	kill()
+	
+# determins if its a hitstun or a ledge climb
+#func wall_collision():
+#	if ledge climb
+#		climb ledge
+#	else wall bounce
+#	if hitstun
+#		hitstun
+	
+# TODO: fix hitstun wall climb interactio
+func wall_collision(delta):
+	for i in get_slide_count():
+		var collision = get_slide_collision(i)
+		if $up.is_colliding() == false && $dw.is_colliding() == true:
+			velocity.x = collision.remainder.x * 55
+		elif (abs(collision.remainder.x) > abs(stun_velocity) ||
+			abs(collision.remainder.y) > abs(stun_velocity) &&
+			!is_on_floor()):
+				velocity.x = -collision.remainder.x * 25
+				velocity.y = collision.remainder.y * 25
+				is_hit_stun = true
+				create_fly_timer(1.5)
+				is_hit_stun = false
+
+
+func _on_5J_body_entered(body):
+	max_jumps = 5
