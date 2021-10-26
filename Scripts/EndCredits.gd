@@ -114,7 +114,3 @@ func _unhandled_input(event):
 		speed_up = true
 	if event.is_action_released("ui_down") and !event.is_echo():
 		speed_up = false
-
-func _go():
-	visible = true
-	#tn.start()
