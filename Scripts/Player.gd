@@ -2,6 +2,7 @@ extends KinematicBody2D
 onready var animated_sprite = $AnimatedSprite
 onready var wing_sprite = $AnimatedSprite2
 onready var bonk_sound = $bonk_sound
+onready var flap_sound = $flap_sound
 
 
 var velocity = Vector2.ZERO # set velocity to o,o
@@ -22,6 +23,7 @@ var is_falling = false
 var fly_timer
 var fall_timer
 var climb
+var flap_pitch = 1
 
 func _ready():
 	position = starting_position
@@ -51,6 +53,7 @@ func _physics_process(delta):
 		velocity.x *= .85
 		jumps = 3
 		gravity = 1750
+		flap_pitch = 1
 		$"../GUI/HUD".update_jumps(jumps)
 		if !is_hit_stun:
 			animated_sprite.play("idle")
@@ -80,6 +83,14 @@ func _physics_process(delta):
 		if !is_hit_stun && !is_falling:
 			animated_sprite.play("flight")
 			wing_sprite.play("flap")
+		if flap_pitch == 1:
+			flap_sound.pitch_scale = 1
+		elif flap_pitch == 2:
+			flap_sound.pitch_scale = 1.75
+		else:
+			flap_sound.pitch_scale = 2.5
+		flap_sound.play()
+		flap_pitch += 1
 
 	wall_collision(delta)
 

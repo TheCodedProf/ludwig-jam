@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Assets/Sprites/Player_Flight.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Sprites/Player_Idle.png" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Assets/Sprites/Player_Fall.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Player_Bonk.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Floor_Bonk.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sound/bonk.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sound/flap.wav" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sound/bonk.wav" type="AudioStream" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 4 )
@@ -165,7 +166,6 @@ scale = Vector2( 0.6, 0.6 )
 z_index = -1
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
 playing = true
 flip_h = true
 
@@ -174,7 +174,6 @@ position = Vector2( 7.45058e-08, -1.90735e-06 )
 z_index = -1
 frames = SubResource( 28 )
 animation = "floor_bonk"
-frame = 1
 playing = true
 flip_h = true
 
@@ -199,6 +198,10 @@ texture = ExtResource( 3 )
 offset = Vector2( 0, -32 )
 
 [node name="flap_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -6.0
 
 [node name="bonk_sound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
+stream = ExtResource( 10 )
+volume_db = -6.0
+mix_target = 2
