@@ -34,6 +34,7 @@ var credits = [
 		"TheCodedProf"
 	],[
 		"Art",
+		"Briyoon",
 		"enmae"
 	],[
 		"Level Design",

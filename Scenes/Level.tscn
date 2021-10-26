@@ -1,4 +1,4 @@
-[gd_scene load_steps=130 format=2]
+[gd_scene load_steps=131 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Tilesets/pipe_set.png" type="Texture" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Assets/Parallax/Small Buildings.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Parallax/Medium Buildings.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Parallax/Tall Buildings.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Images/Direction Arrow.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Images/clicktofly.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Images/5flap.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Images/Casino.png" type="Texture" id=20]
@@ -1198,6 +1199,267 @@ margin_top = -2241.0
 margin_right = 10112.0
 margin_bottom = -1858.0
 texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DownArrow" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 475.745
+margin_top = -686.57
+margin_right = 522.745
+margin_bottom = -662.57
+rect_rotation = 90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightArrow" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 661.352
+margin_top = -468.73
+margin_right = 708.352
+margin_bottom = -444.73
+rect_rotation = -46.5
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 1935.82
+margin_top = -628.27
+margin_right = 1982.82
+margin_bottom = -604.27
+rect_rotation = 51.3
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow2" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 3093.82
+margin_top = -1014.27
+margin_right = 3140.82
+margin_bottom = -990.27
+rect_rotation = 90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow3" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 2638.81
+margin_top = -380.281
+margin_right = 2685.81
+margin_bottom = -356.281
+rect_rotation = -90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow4" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 3093.93
+margin_top = -570.073
+margin_right = 3140.93
+margin_bottom = -546.073
+rect_rotation = -43.5
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow5" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 3656.65
+margin_top = -876.259
+margin_right = 3703.65
+margin_bottom = -852.259
+rect_rotation = 90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow6" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 3682.52
+margin_top = -884.884
+margin_right = 3729.52
+margin_bottom = -860.884
+rect_rotation = 35.8
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow7" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 4936.8
+margin_top = -575.943
+margin_right = 4983.8
+margin_bottom = -551.943
+rect_rotation = -33.9
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow8" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 5342.78
+margin_top = -664.356
+margin_right = 5389.78
+margin_bottom = -640.356
+rect_rotation = -10.7
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow9" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 5812.0
+margin_top = -658.822
+margin_right = 5859.0
+margin_bottom = -634.822
+rect_rotation = -33.9
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow10" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 6259.45
+margin_top = -779.219
+margin_right = 6306.45
+margin_bottom = -755.219
+rect_rotation = -26.2
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow11" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 6740.33
+margin_top = -848.225
+margin_right = 6787.33
+margin_bottom = -824.225
+rect_rotation = -10.7
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow12" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 7132.8
+margin_top = -876.259
+margin_right = 7179.8
+margin_bottom = -852.259
+rect_rotation = -90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow13" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 7557.62
+margin_top = -1419.68
+margin_right = 7604.62
+margin_bottom = -1395.68
+rect_rotation = 90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow14" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 7574.87
+margin_top = -981.924
+margin_right = 7621.87
+margin_bottom = -957.924
+rect_rotation = 90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow15" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 7585.65
+margin_top = -537.7
+margin_right = 7632.65
+margin_bottom = -513.7
+rect_rotation = 90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow16" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 7743.07
+margin_top = -375.968
+margin_right = 7790.07
+margin_bottom = -351.968
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow17" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 7947.93
+margin_top = -382.437
+margin_right = 7994.93
+margin_bottom = -358.437
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow18" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 8607.8
+margin_top = -595.923
+margin_right = 8654.8
+margin_bottom = -571.923
+rect_rotation = -31.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow19" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 8879.51
+margin_top = -699.432
+margin_right = 8926.51
+margin_bottom = -675.432
+rect_rotation = -90.0
+texture = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Arrow20" type="NinePatchRect" parent="."]
+show_behind_parent = true
+margin_left = 9009.16
+margin_top = -1943.15
+margin_right = 9056.16
+margin_bottom = -1919.15
+texture = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
