@@ -1,5 +1,9 @@
 extends KinematicBody2D
 onready var animated_sprite = $AnimatedSprite
+onready var wing_sprite = $AnimatedSprite2
+onready var bonk_sound = $bonk_sound
+onready var flap_sound = $flap_sound
+
 
 var velocity = Vector2.ZERO # set velocity to o,o
 var max_horizontal = 1250 # max left and right speed
@@ -8,7 +12,6 @@ var run_accel = 500 # how fast you accelerate left and right
 var gravity = 1750 # overall gravity modifier (both jump and fall)
 var max_fall = 500 # fall speed
 var jumps = 3 # set current jumps
-var can_fly = true
 var starting_position = Vector2(16, -20.000816)
 var stun_velocity = 0
 var flaps = 0
@@ -16,10 +19,25 @@ var fly_force = 0
 var direction_x
 var direction_y
 var is_hit_stun = false
-var max_jumps = 3
+var is_falling = false
+var fly_timer
+var fall_timer
+var climb
+var flap_pitch = 1
 
 func _ready():
 	position = starting_position
+	fly_timer = Timer.new()
+	fly_timer.set_one_shot(true)
+	fly_timer.set_wait_time(1.5)
+	fly_timer.connect("timeout", self, "on_fly_timeout_complete")
+
+	fall_timer = Timer.new()
+	fall_timer.set_one_shot(true)
+	fall_timer.set_wait_time(60)
+	fall_timer.connect("timeout", self, "")
+	add_child(fly_timer)
+	add_child(fall_timer)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -33,19 +51,26 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		velocity.x *= .85
-		jumps = max_jumps
+		jumps = 3
 		gravity = 1750
+		flap_pitch = 1
 		$"../GUI/HUD".update_jumps(jumps)
-		animated_sprite.play("idle")
+		if !is_hit_stun:
+			animated_sprite.play("idle")
+			wing_sprite.play("idle")
+		else:
+			animated_sprite.play("floor_bonk")
+			wing_sprite.play("idle")			
+		fall_timer.start()
 	elif velocity.y > 0:
-		gravity += 10 * delta
+		gravity += 100 * delta
 	elif velocity.y < 0:
 		gravity = 1750
-	
-	wall_collision(delta)
+	elif !is_on_ceiling():
+		fall_timer.stop()
 		
 	# flying feels like giga shit lmao
-	if flying && jumps != 0 && can_fly:
+	if flying && jumps != 0 && !is_hit_stun:
 		flaps += 1
 		jumps -= 1
 		$"../GUI/HUD".update_jumps(jumps)
@@ -55,7 +80,23 @@ func _physics_process(delta):
 		velocity.y = direction_y * min(abs(velocity.y), max_vertical)
 		if velocity.y > -1500 && direction_y == -1:
 			velocity.y = sin(mouse_angle) * fly_force
-		animated_sprite.play("flight")
+		if !is_hit_stun && !is_falling:
+			animated_sprite.play("flight")
+			wing_sprite.play("flap")
+		if flap_pitch == 1:
+			flap_sound.pitch_scale = 1
+		elif flap_pitch == 2:
+			flap_sound.pitch_scale = 1.75
+		elif flap_pitch == 3:
+			flap_sound.pitch_scale = 2.5
+		elif flap_pitch == 4:
+			flap_sound.pitch_scale = 3.25
+		else:
+			flap_sound.pitch_scale = 4
+		flap_sound.play()
+		flap_pitch += 1
+
+	wall_collision(delta)
 
 	# update velocity
 	velocity.x = move_toward(velocity.x, 0, run_accel * delta)
@@ -63,57 +104,88 @@ func _physics_process(delta):
 	
 	velocity = move_and_slide(velocity, Vector2.UP, false, 2)
 	
+	if fall_timer.get_time_left() < 58.5:
+		print(fall_timer.get_time_left())
+		animated_sprite.play("fall")
+		is_falling = true
+	else:
+		is_falling = false
+	
 	# TODO: add player animation
 	$Arrow.rotation = mouse_angle + PI/2
 	if direction_x < 0:
 		animated_sprite.flip_h = true
-		$up.cast_to = Vector2(-9, 0)
-		$dw.cast_to = Vector2(-9, 0)
+		wing_sprite.flip_h = true
+		if is_falling:
+			wing_sprite.position = Vector2(12, 12)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = true
+		elif is_hit_stun && is_on_floor():
+			wing_sprite.position = Vector2(12, 0)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = false
+		elif is_hit_stun:
+			wing_sprite.position = Vector2(12, 2)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = false
+		elif !is_on_floor():
+			wing_sprite.position = Vector2(12, -5)
+			wing_sprite.z_index = 0
+			wing_sprite.flip_v = false
+		else:
+			wing_sprite.position = Vector2(12, 0)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = false
+		$up.cast_to = Vector2(-11, 0)
+		$dw.cast_to = Vector2(-11, 0)
 	else:
 		animated_sprite.flip_h = false
-		$up.cast_to = Vector2(9, 0)
-		$dw.cast_to = Vector2(9, 0)
+		wing_sprite.flip_h = false
+		if is_falling:
+			wing_sprite.position = Vector2(-12, 12)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = true
+		elif is_hit_stun && is_on_floor():
+			wing_sprite.position = Vector2(-12, 0)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = false
+		elif is_hit_stun:
+			wing_sprite.position = Vector2(-12, 2)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = false
+		elif !is_on_floor():
+			wing_sprite.position = Vector2(-12, -5)
+			wing_sprite.z_index = 0
+			wing_sprite.flip_v = false
+		else:
+			wing_sprite.position = Vector2(-12, 0)
+			wing_sprite.z_index = -1
+			wing_sprite.flip_v = false
+		$up.cast_to = Vector2(11, 0)
+		$dw.cast_to = Vector2(11, 0)	
 
-func create_fly_timer(delay):
-	can_fly = false
-	yield(get_tree().create_timer(delay), "timeout")
-	can_fly = true
+func on_fly_timeout_complete():
+	is_hit_stun = false
 	
 func kill():
 	velocity = Vector2.ZERO
 	position = starting_position
-	max_jumps = 3
 
 func _on_DeathBarrier_entered(body):
 	kill()
-	
-# determins if its a hitstun or a ledge climb
-#func wall_collision():
-#	if ledge climb
-#		climb ledge
-#	else wall bounce
-#	if hitstun
-#		hitstun
-	
+		
 # TODO: fix hitstun wall climb interactio
 func wall_collision(delta):
 	for i in get_slide_count():
 		var collision = get_slide_collision(i)
-		if $up.is_colliding() == false && $dw.is_colliding() == true:
+		if $up.is_colliding() == false && $dw.is_colliding() == true && !is_on_floor():
 			velocity.x = collision.remainder.x * 55
 		elif (abs(collision.remainder.x) > abs(stun_velocity) ||
 			abs(collision.remainder.y) > abs(stun_velocity) &&
 			!is_on_floor()):
 				velocity.x = -collision.remainder.x * 25
 				velocity.y = collision.remainder.y * 25
+				animated_sprite.play("bonk")
+				bonk_sound.play()
 				is_hit_stun = true
-				create_fly_timer(1.5)
-				is_hit_stun = false
-
-
-func _on_5J_body_entered(body):
-	max_jumps = 5
-
-
-func _on_Finish_body_entered(body):
-	$"../GUI/EndScreen".visible = true
+				fly_timer.start()
